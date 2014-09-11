@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resource :user, except: [:destroy]
   resource :user_session, only: [:new, :create, :destroy]
+  resources :students
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
