@@ -1,0 +1,5 @@
+%h1 Student Portal
+= link_to "New Course", new_course_path
+%ul
+  -@courses.each do |course|
+    %li

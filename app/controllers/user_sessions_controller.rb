@@ -5,7 +5,6 @@ class UserSessionsController < ApplicationController
 
   def create
     if @user = login(params[:user][:email], params[:user][:password])
-      auto_login(@user)
       redirect_to root_path
     else
       @user = User.new(params.require(:user).permit(:email, :password))
