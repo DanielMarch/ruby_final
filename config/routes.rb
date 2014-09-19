@@ -7,8 +7,9 @@ Rails.application.routes.draw do
 
   resource :user, except: [:destroy]
   resource :user_session, only: [:new, :create, :destroy]
-  resources :courses
-  resources :lessons
+  resources :courses do
+    resources :lessons
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

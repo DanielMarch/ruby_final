@@ -1,1 +1,5 @@
 %h1 New Lesson
+= simple_form_for @lesson, url: course_lessons_path(@course, @lesson) do |f|
+  = f.input :title, placeholder: 'Title'
+  = f.input :content, placeholder: 'Add Link to Content Here'
+  = f.submit "Create New Lesson"
