@@ -2,4 +2,5 @@
 = link_to "New Course", new_course_path
 %ul
   -@courses.each do |course|
-    %li= course.title
+    %li
+      =link_to course.title, edit_course_path(course)

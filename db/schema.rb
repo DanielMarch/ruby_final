@@ -36,4 +36,12 @@ ActiveRecord::Schema.define(version: 20140915154504) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
 
+  # create_table "courses", force: true do |t|
+  #   t.string   "title"
+  #   t.string   "content"
+  #   t.datetime "created_at"
+  #   t.datetime "updated_at"
+  #   t.integer  "course_id"
+  # end
+
 end

@@ -1,0 +1,8 @@
+%h1 EDIT
+= link_to "New Lesson", new_lesson_path
+= simple_form_for @course do |f|
+  = f.input :title, placeholder: 'Title'
+  = f.input :subject, placeholder: 'Subject'
+  = f.submit "Edit Course"
+
+= button_to("Delete This Course", @course, method: :delete, data: { confirm: "Are you sure?"})
