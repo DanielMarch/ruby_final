@@ -6,3 +6,8 @@
   = f.submit "Edit Course"
 
 = button_to("Delete This Course", @course, method: :delete, data: { confirm: "Are you sure?"})
+
+%ul
+  -@course.lessons.each do |lesson|
+    %li
+      =link_to lesson.title, edit_course_lesson_path(@course, lesson)

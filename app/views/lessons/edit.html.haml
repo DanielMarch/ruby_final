@@ -1,0 +1,6 @@
+%h1 Edit Lesson
+= simple_form_for @lesson, url: course_lesson_path(@course, @lesson) do |f|
+  = f.input :title, placeholder: 'Title'
+  = f.input :content, placeholder: 'Add Link to Content Here'
+  = f.submit "Edit Lesson"
+= button_to "Delete Lesson", course_lesson_path(@course, @lesson), method: :delete, data: { confirm: "Are you sure?"}
