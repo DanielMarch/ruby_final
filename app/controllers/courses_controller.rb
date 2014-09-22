@@ -12,7 +12,7 @@ class CoursesController < ApplicationController
   def create
     @course = Course.new(course_params)
     if @course.save
-      redirect_to root_path
+      redirect_to courses_path
     else
       render :new
     end
@@ -21,14 +21,18 @@ class CoursesController < ApplicationController
   def edit
     @course = Course.find_by_id(params[:id])
     if @course.nil?
-      redirect_to root_path
+      redirect_to courses_path
     end
+  end
+
+  def show
+    @course = Course.find_by_id(params[:id])
   end
 
   def update
     @course = Course.find_by_id(params[:id])
     if @course.update_attributes(course_params)
-      redirect_to root_path
+      redirect_to courses_path
     else
       render 'edit'
     end
@@ -37,7 +41,7 @@ class CoursesController < ApplicationController
   def destroy
     course = Course.find(params[:id])
     course.destroy!
-    redirect_to root_path
+    redirect_to courses_path
   end
 
   protected

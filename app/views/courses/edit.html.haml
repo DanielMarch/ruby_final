@@ -1,12 +1,15 @@
-%h1 EDIT
+%h1 Edit Course
 = link_to "New Lesson", new_course_lesson_path(@course)
 = simple_form_for @course do |f|
   = f.input :title, placeholder: 'Title'
   = f.input :subject, placeholder: 'Subject'
-  = f.submit "Edit Course"
+  = f.submit "Save Edit"
 
 = button_to("Delete This Course", @course, method: :delete, data: { confirm: "Are you sure?"})
 
+= link_to "Cancel Edit", courses_path
+
+%h2 Lessons
 %ul
   -@course.lessons.each do |lesson|
     %li

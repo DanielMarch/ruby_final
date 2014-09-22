@@ -19,6 +19,10 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
   end
 
+  def show
+    @lesson = Lesson.find(params[:id])
+  end
+
   def update
     @lesson = Lesson.find(params[:id])
     if @lesson.update(lesson_params)

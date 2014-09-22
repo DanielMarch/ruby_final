@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resource :user, except: [:destroy]
   resource :user_session, only: [:new, :create, :destroy]
+  resource :students, only: [:show]
+  resource :materials
   resources :courses do
     resources :lessons
   end

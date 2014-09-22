@@ -1,0 +1,9 @@
+%h1= @course.title
+= link_to "Back", materials_path
+%h2 Lessons
+%table
+  %tbody
+    -@course.lessons.each do |lesson|
+      %tr
+        %td
+          =link_to lesson.title, course_lesson_path(@course, lesson)
