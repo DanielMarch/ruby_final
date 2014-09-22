@@ -1,3 +1,4 @@
 %h1= @lesson.title
 = link_to "Back", course_path(@course)
-= @lesson.content
+%br
+= raw @lesson.content
