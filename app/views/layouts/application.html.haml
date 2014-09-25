@@ -6,11 +6,25 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
-    -if logged_in?
-      = link_to "Home", root_path
-      = link_to "Logout", user_session_path, method: :delete
-    -else
-      = link_to "Home", root_path
-      = link_to "Sign Up", new_user_path
-      = link_to "Sign In", new_user_session_path
+    .container
+      .row.clearfix
+        .col-md-12.column
+          %nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
+            .navbar-header
+              %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+                %span.sr-only Toggle navigation
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              .navbar-brand= link_to "Open Course", root_path
+            #bs-example-navbar-collapse-1.collapse.navbar-collapse
+              %ul.nav.navbar-nav.navbar-right
+                -if logged_in?
+                  %li
+                    = link_to "Logout", user_session_path, method: :delete
+                -else
+                  %li
+                    = link_to "Sign Up", new_user_path
+                  %li
+                    = link_to "Sign In", new_user_session_path
     = yield
