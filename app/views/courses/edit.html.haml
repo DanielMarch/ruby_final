@@ -1,16 +1,23 @@
-%h1 Edit Course
-= link_to "New Lesson", new_course_lesson_path(@course)
-= simple_form_for @course do |f|
-  = f.input :title, placeholder: 'Title'
-  = f.input :subject, placeholder: 'Subject'
-  = f.submit "Save Edit"
+.col-md-2.column
+.col-md-8.column
+  %h1 Edit Course
+  = simple_form_for @course do |f|
+    = f.input :title, placeholder: 'Title'
+    = f.input :subject, placeholder: 'Subject'
+    %button.btn.btn-default{:type => "submit"} Save Edit
 
-= button_to("Delete This Course", @course, method: :delete, data: { confirm: "Are you sure?"})
+  .btn.btn-danger= link_to("Delete This Course", @course, method: :delete, data: { confirm: "Are you sure?"})
+  .btn.btn-primary= link_to "Cancel Edit", courses_path
+  .btn.btn-success= link_to "New Lesson", new_course_lesson_path(@course)
+  %h2 Lessons    
+  %table.table.table-hover
+    %thead
+      %tr
+        %td Title
+    %tbody
+      -@course.lessons.each do |lesson|
+        %tr
+          %td
+            =link_to lesson.title, edit_course_lesson_path(@course, lesson)
 
-= link_to "Cancel Edit", courses_path
-
-%h2 Lessons
-%ul
-  -@course.lessons.each do |lesson|
-    %li
-      =link_to lesson.title, edit_course_lesson_path(@course, lesson)
+.col-md-2.column

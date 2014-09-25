@@ -1,14 +1,18 @@
-%h1 Create and Edit Content Here
-= link_to "New Course", new_course_path
-%table
-  %thead
-    %tr
-      %td Title
-      %td Subject
-  %tbody
-    -@courses.each do |course|
+.col-md-2.column
+.col-md-8.column
+  %h1 Create and Edit Content Here
+  = link_to "New Course", new_course_path
+  = link_to "Back", root_path
+  %table.table.table-hover
+    %thead
       %tr
-        %td
-          =link_to course.title, edit_course_path(course)
-        %td
-          = course.subject
+        %td Title
+        %td Subject
+    %tbody
+      -@courses.each do |course|
+        %tr
+          %td
+            =link_to course.title, edit_course_path(course)
+          %td
+            = course.subject
+.col-md-2.column

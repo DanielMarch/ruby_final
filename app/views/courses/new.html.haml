@@ -1,6 +1,9 @@
-%h1 New Course
-= simple_form_for @course do |f|
-  = f.input :title, placeholder: 'Title'
-  = f.input :subject, placeholder: 'Subject'
-  = f.submit "Create New Course"
-= link_to "Cancel", courses_path
+.col-md-2.column
+.col-md-8.column
+  %h1 New Course
+  = simple_form_for @course do |f|
+    = f.input :title, placeholder: 'Title'
+    = f.input :subject, placeholder: 'Subject'
+    %button.btn.btn-default{:type => "submit"} Create New Course
+  = link_to "Cancel", courses_path
+.col-md-2.column

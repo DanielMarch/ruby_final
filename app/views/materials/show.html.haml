@@ -1,13 +1,17 @@
-%h1 Pick A Course
-%table
-  %thead
-    %tr
-      %td Title
-      %td Subject
-  %tbody
-    -@courses.each do |course|
+.col-md-2.column
+.col-md-8.column
+  %h1 Pick A Course
+  = link_to "Back", root_path
+  %table.table.table-hover
+    %thead
       %tr
-        %td
-          =link_to course.title, course_path(course)
-        %td
-          = course.subject
+        %td Title
+        %td Subject
+    %tbody
+      -@courses.each do |course|
+        %tr
+          %td
+            =link_to course.title, course_path(course)
+          %td
+            = course.subject
+.col-md-2.column
